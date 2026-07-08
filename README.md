@@ -24,3 +24,664 @@ The project follows the **Model-View-Controller (MVC)** architecture and impleme
 - 🏗️ Clean Layered Architecture for Better Maintainability
 
 ---
+# 🛠️ Technology Stack
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- JSP (JavaServer Pages)
+
+## Backend
+
+- Java
+- Servlets
+- JDBC (Java Database Connectivity)
+
+## Database
+
+- MySQL
+
+## Web Server
+
+- Apache Tomcat 10
+
+## IDE
+
+- Eclipse IDE
+
+## Version Control
+
+- Git
+- GitHub
+
+---
+
+# 🏗️ Software Architecture
+
+The application follows the **Model-View-Controller (MVC)** architecture to ensure separation of concerns and maintain a clean, scalable, and organized codebase.
+
+### Architecture Overview
+
+- **Model:** Represents business entities and application data.
+- **View:** JSP pages responsible for rendering the user interface.
+- **Controller:** Java Servlets that process client requests, interact with the business layer, and control application flow.
+- **DAO Layer:** Handles all database operations using JDBC.
+- **Database:** MySQL stores application data securely and efficiently.
+
+```
+                 User
+                   │
+                   ▼
+            JSP (View Layer)
+                   │
+                   ▼
+        Servlet (Controller Layer)
+                   │
+                   ▼
+             DAO Interface
+                   │
+                   ▼
+        DAO Implementation Layer
+                   │
+                   ▼
+             MySQL Database
+```
+
+---
+
+# 💡 Design Patterns Used
+
+- Model-View-Controller (MVC)
+- DAO (Data Access Object)
+- Layered Architecture
+- Object-Oriented Programming (OOP)
+- Separation of Concerns (SoC)
+
+---
+
+# 📂 Project Structure
+
+```text
+Foodie
+│
+├── src
+│   └── main
+│       ├── java
+│       │
+│       ├── com.designpattern.controllers
+│       │   ├── AddToCartServlet.java
+│       │   ├── CartItemServlet.java
+│       │   ├── CartServlet.java
+│       │   ├── ChangePasswordServlet.java
+│       │   ├── CheckoutServlet.java
+│       │   ├── HomeServlet.java
+│       │   ├── LoginServlet.java
+│       │   ├── LogoutServlet.java
+│       │   ├── MenuServlet.java
+│       │   ├── OrdersServlet.java
+│       │   ├── PaymentSuccessServlet.java
+│       │   ├── ProfileServlet.java
+│       │   ├── RegisterServlet.java
+│       │   └── RestaurantServlet.java
+│       │
+│       ├── com.designpattern.dao
+│       │   ├── CartDAO.java
+│       │   ├── CartItemDAO.java
+│       │   ├── CategoryDAO.java
+│       │   ├── EventsDAO.java
+│       │   ├── MenuDAO.java
+│       │   ├── OrderDAO.java
+│       │   ├── OrderItemDAO.java
+│       │   ├── RestaurantDAO.java
+│       │   └── UserDAO.java
+│       │
+│       ├── com.designpattern.DAOImpl
+│       │   ├── CartDAOImpl.java
+│       │   ├── CartItemDAOImpl.java
+│       │   ├── CategoryDAOImpl.java
+│       │   ├── EventsDAOImpl.java
+│       │   ├── MenuDAOImpl.java
+│       │   ├── OrderDAOImpl.java
+│       │   ├── OrderItemDAOImpl.java
+│       │   ├── RestaurantDAOImpl.java
+│       │   └── UserDAOImpl.java
+│       │
+│       ├── com.designpattern.model
+│       │   ├── Cart.java
+│       │   ├── CartItem.java
+│       │   ├── Category.java
+│       │   ├── Events.java
+│       │   ├── Menu.java
+│       │   ├── Order.java
+│       │   ├── OrderItem.java
+│       │   ├── Restaurant.java
+│       │   └── User.java
+│       │
+│       └── com.designpattern.utility
+│           └── DBConnection.java
+│
+├── src
+│   └── main
+│       └── webapp
+│           ├── images
+│           ├── css
+│           ├── js
+│           ├── META-INF
+│           ├── WEB-INF
+│           │   ├── lib
+│           │   └── web.xml
+│           │
+│           ├── home.jsp
+│           ├── login.jsp
+│           ├── register.jsp
+│           ├── restaurant.jsp
+│           ├── menu.jsp
+│           ├── cart.jsp
+│           ├── checkout.jsp
+│           ├── profile.jsp
+│           ├── orders.jsp
+│           ├── order-success.jsp
+│           └── error.jsp
+│
+├── build
+├── screenshots
+├── instant_food.sql
+├── README.md
+└── .gitignore
+```
+
+---
+
+
+## 📌 Database Tables
+
+### 👤 User Table
+
+Stores customer information and authentication details.
+
+| Column | Description |
+|--------|-------------|
+| user_id | Primary Key |
+| name | User name |
+| email | User email |
+| password | User password |
+| phone | Contact number |
+| address | Delivery address |
+
+---
+
+### 🍴 Restaurant Table
+
+Stores restaurant details.
+
+| Column | Description |
+|--------|-------------|
+| restaurant_id | Primary Key |
+| restaurant_name | Name of restaurant |
+| location | Restaurant location |
+| image | Restaurant image |
+| rating | Customer rating |
+
+---
+
+### 🍔 Menu Table
+
+Stores food items available in restaurants.
+
+| Column | Description |
+|--------|-------------|
+| menu_id | Primary Key |
+| restaurant_id | Foreign Key |
+| food_name | Food item name |
+| description | Food details |
+| price | Food price |
+| image | Food image |
+| category_id | Food category |
+
+---
+
+### 🛒 Cart Table
+
+Stores user shopping cart details.
+
+| Column | Description |
+|--------|-------------|
+| cart_id | Primary Key |
+| user_id | Foreign Key |
+| created_date | Cart creation date |
+
+---
+
+### 🧾 Cart Item Table
+
+Stores individual items added to cart.
+
+| Column | Description |
+|--------|-------------|
+| cart_item_id | Primary Key |
+| cart_id | Foreign Key |
+| menu_id | Foreign Key |
+| quantity | Item quantity |
+
+---
+
+### 📦 Order Table
+
+Stores customer orders.
+
+| Column | Description |
+|--------|-------------|
+| order_id | Primary Key |
+| user_id | Foreign Key |
+| order_date | Date of order |
+| total_amount | Total order amount |
+| status | Order status |
+
+---
+
+### 📋 Order Item Table
+
+Stores ordered food items.
+
+| Column | Description |
+|--------|-------------|
+| order_item_id | Primary Key |
+| order_id | Foreign Key |
+| menu_id | Foreign Key |
+| quantity | Ordered quantity |
+| price | Item price |
+
+---
+
+### 🏷️ Category Table
+
+Stores food categories.
+
+| Column | Description |
+|--------|-------------|
+| category_id | Primary Key |
+| category_name | Category name |
+---
+## 🔗 Database Relationships
+
+- One **User** can have multiple Orders.
+- One **Restaurant** can have multiple Menu Items.
+- One **Cart** can contain multiple Cart Items.
+- One **Order** can contain multiple Order Items.
+- One **Category** can contain multiple Menu Items.
+
+# 🚀 Key Features
+
+## 👤 User Features
+
+✅ User Registration  
+- New users can create an account.
+- User details are securely stored in the database.
+
+✅ User Login & Logout  
+- Authentication system using email and password.
+- Session management for logged-in users.
+
+✅ Profile Management  
+- Users can view and update their profile details.
+- Change password functionality available.
+
+
+## 🍽️ Restaurant Features
+
+✅ Browse Restaurants  
+- Users can view available restaurants.
+- Restaurant details are dynamically fetched from MySQL database.
+
+✅ View Menu  
+- Each restaurant displays its available food items.
+- Menu items include food name, image, description, and price.
+
+
+## 🛒 Cart Features
+
+✅ Add To Cart  
+- Users can add multiple food items to their cart.
+
+✅ Update Cart  
+- Increase or decrease item quantity.
+- Remove unwanted items.
+
+✅ Cart Summary  
+- Displays:
+  - Item price
+  - Quantity
+  - Subtotal
+  - Total amount
+
+
+## 📦 Order Features
+
+✅ Checkout System  
+- Users can place orders from the cart.
+
+✅ Order Management  
+- Stores order details and ordered items in the database.
+
+✅ Order History  
+- Users can view their previous orders.
+
+✅ Payment Success Flow  
+- Displays successful order confirmation after checkout.
+
+
+## ⚙️ Technical Features
+
+✅ MVC Architecture  
+- Separates application into:
+  - Model
+  - View
+  - Controller
+
+✅ DAO Design Pattern  
+- Provides clean database interaction.
+- Improves code maintainability.
+
+✅ JDBC Integration  
+- Performs database operations using JDBC.
+
+✅ Session Management  
+- Maintains user login and cart information.
+
+✅ Dynamic Web Application  
+- JSP pages display real-time data from the database.
+
+# 🔄 Application Workflow
+
+The Foodie application follows a simple and efficient user workflow.
+
+            Start
+              |
+              ↓
+      User Opens Website
+              |
+              ↓
+      Register / Login
+              |
+              ↓
+    Browse Restaurants
+              |
+              ↓
+      Select Restaurant
+              |
+              ↓
+        View Menu Items
+              |
+              ↓
+      Add Food To Cart
+              |
+              ↓
+        Manage Cart
+              |
+              ↓
+         Checkout
+              |
+              ↓
+      Confirm Order
+              |
+              ↓
+      Payment Success
+              |
+              ↓
+      View Order History
+              |
+              ↓
+             End
+
+             
+## 🔹 Backend Flow
+
+JSP Pages
+|
+↓
+Servlet Controllers
+|
+↓
+Service Layer
+|
+↓
+DAO Layer
+|
+↓
+JDBC
+|
+↓
+MySQL Database
+
+## 🔹 Request Processing Flow
+
+1. User performs an action from JSP page.
+2. Request is sent to the corresponding Servlet.
+3. Servlet validates user input.
+4. DAO layer communicates with MySQL database.
+5. Data is retrieved or updated.
+6. Response is returned back to JSP page.
+
+# 📸 Screenshots
+
+## 🏠 Home Page
+
+The home page displays available restaurants, food categories, and navigation options for users.
+
+![Home Page](screenshots/home.png)
+
+
+## 🔐 Login Page
+
+Users can securely login using their registered email and password.
+
+![Login Page](screenshots/login.png)
+
+
+## 📝 Registration Page
+
+New users can create an account by providing their personal details.
+
+![Register Page](screenshots/register.png)
+
+
+## 🍴 Restaurant Page
+
+Displays the list of available restaurants with restaurant details.
+
+![Restaurant Page](screenshots/restaurant.png)
+
+
+## 🍔 Menu Page
+
+Users can view food items, prices, images, and add items to the cart.
+
+![Menu Page](screenshots/menu.png)
+
+
+## 🛒 Cart Page
+
+Displays selected food items with quantity management and total calculation.
+
+![Cart Page](screenshots/cart.png)
+
+
+## 💳 Checkout Page
+
+Users can confirm their order before placing it.
+
+![Checkout Page](screenshots/checkout.png)
+
+
+## 📦 Order Success Page
+
+Displays order confirmation after successful checkout.
+
+![Order Success Page](screenshots/order-success.png)
+
+
+# 🧪 Testing & Validation
+
+The Foodie application was tested to ensure all functionalities work correctly and provide a smooth user experience.
+
+## ✅ Functional Testing
+
+| Module | Test Case | Result |
+|--------|-----------|--------|
+| Registration | Create new user account | ✅ Passed |
+| Login | Login with valid credentials | ✅ Passed |
+| Login | Login with invalid credentials | ✅ Passed |
+| Restaurant | Display restaurant list | ✅ Passed |
+| Menu | Display food items dynamically | ✅ Passed |
+| Cart | Add items to cart | ✅ Passed |
+| Cart | Update item quantity | ✅ Passed |
+| Cart | Remove cart items | ✅ Passed |
+| Checkout | Place order successfully | ✅ Passed |
+| Orders | View order history | ✅ Passed |
+| Profile | Update user information | ✅ Passed |
+
+
+## 🔍 Database Testing
+
+- Verified database connectivity using JDBC.
+- Tested CRUD operations:
+  - Create new records
+  - Read data from database
+  - Update existing records
+  - Delete records
+
+- Checked relationships between:
+  - User & Orders
+  - Restaurant & Menu
+  - Order & Order Items
+
+## ⚡ Performance Testing
+- Tested multiple user requests.
+- Verified efficient data retrieval using DAO classes.
+- Ensured proper session handling.
+
+## 🛡️ Security Testing
+- Validated user inputs.
+- Prevented unauthorized access using session management.
+- Managed database operations through prepared statements.
+
+# 🔮 Future Enhancements
+
+The Foodie application can be enhanced with additional features to provide a better user experience and improve scalability.
+
+## 🚀 Planned Features
+
+### 📱 Mobile Application
+- Develop an Android/iOS application for easier food ordering.
+- Provide mobile-friendly user experience.
+
+### 💳 Online Payment Integration
+- Integrate secure payment gateways such as:
+  - UPI
+  - Credit/Debit Cards
+  - Net Banking
+  - Wallet Payments
+
+### 📍 Live Order Tracking
+- Enable real-time order tracking.
+- Show delivery partner location and estimated delivery time.
+
+### ⭐ Rating & Review System
+- Allow users to rate restaurants and food items.
+- Users can share feedback and reviews.
+
+### 🔔 Notifications
+- Add email and SMS notifications.
+- Notify users about:
+  - Order confirmation
+  - Order preparation
+  - Delivery updates
+
+### 🤖 Personalized Recommendations
+- Suggest food items based on:
+  - Previous orders
+  - User preferences
+  - Popular dishes
+
+### 🏪 Restaurant Partner Module
+- Allow restaurants to:
+  - Manage menus
+  - Update food availability
+  - Track incoming orders
+
+### 📊 Admin Dashboard
+- Add admin panel for:
+  - User management
+  - Restaurant management
+  - Order monitoring
+  - Sales reports
+
+# 👩‍💻 Developer
+
+## Nirmala
+
+💻 Software Developer Intern  
+🎓 Computer Science Engineering Graduate  
+
+Aspiring Software Developer with a strong foundation in Java, Web Development, and Database Management. Passionate about building scalable web applications and improving problem-solving skills through continuous learning.
+
+### Technical Skills
+
+- Java
+- JSP & Servlets
+- JDBC
+- MySQL
+- HTML5
+- CSS3
+- JavaScript
+- MVC Architecture
+- DAO Design Pattern
+- Git & GitHub
+- Apache Tomcat
+- Maven
+
+### Professional Interests
+- Java Full Stack Development
+- Backend Development
+- Web Application Development
+- Software Engineering
+
+### Connect With Me
+- GitHub: https://github.com/n-091
+- LinkedIn: www.linkedin.com/in/nirmala091
+- Email:nirmalaniruss09@gmail.com
+
+- # ⭐ Conclusion
+
+Foodie is a complete **Food Delivery Web Application** developed using **Java, JSP, Servlets, JDBC, and MySQL**.
+
+The project demonstrates real-world software development practices including:
+
+- MVC Architecture
+- DAO Design Pattern
+- Database Integration
+- Session Management
+- CRUD Operations
+- Object-Oriented Programming principles
+
+The application provides a smooth food ordering experience where users can browse restaurants, explore menus, add items to cart, place orders, and manage their profiles.
+
+This project helped in gaining practical experience in **Java Full Stack Development**, backend implementation, database handling, and building scalable web applications.
+
+---
+
+## 🙏 Thank You
+
+Thank you for visiting this project repository.
+
+⭐ If you find this project useful, consider giving it a star!
+
+# 📄 License
+
+This project is developed for learning and demonstration purposes.
+
+You are free to explore the source code, understand the implementation, and use it for educational purposes.
+
+© 2026 Nirmala. All rights reserved.
