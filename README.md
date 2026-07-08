@@ -3,19 +3,19 @@
 ![JSP](https://img.shields.io/badge/JSP-Java%20Server%20Pages-blue?style=for-the-badge)
 ![Servlet](https://img.shields.io/badge/Servlet-Jakarta%20EE-green?style=for-the-badge)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql)
-![Maven](https://img.shields.io/badge/Maven-Build%20Tool-red?style=for-the-badge&logo=apachemaven)
 ![Tomcat](https://img.shields.io/badge/Apache%20Tomcat-10.1-yellow?style=for-the-badge&logo=apachetomcat)
 ![HTML5](https://img.shields.io/badge/HTML5-Frontend-orange?style=for-the-badge&logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS3-Frontend-blue?style=for-the-badge&logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?style=for-the-badge&logo=javascript)
 ![Git](https://img.shields.io/badge/Git-Version%20Control-orange?style=for-the-badge&logo=git)
+
 # 📌 About The Project
 
 **Foodie** is a Java-based **Full Stack Food Delivery Web Application** designed to provide a seamless and interactive online food ordering experience.
 
 The application enables users to create accounts, securely authenticate, explore restaurants, browse dynamic menus, add food items to their cart, place orders, and manage their order history through a user-friendly interface.
 
-Developed using **Java, JSP, Servlets, JDBC, MySQL, HTML5, CSS3, JavaScript, Apache Tomcat, and Maven**, Foodie demonstrates practical implementation of Java Enterprise Web Development concepts including user authentication, session management, CRUD operations, database connectivity, exception handling, and dynamic content rendering using JSP.
+Developed using **Java, JSP, Servlets, JDBC, MySQL, HTML5, CSS3, JavaScript, and Apache Tomcat**, Foodie demonstrates practical implementation of Java Enterprise Web Development concepts including user authentication, session management, CRUD operations, database connectivity, exception handling, and dynamic content rendering using JSP.
 
 The project follows industry-standard development practices using **MVC (Model-View-Controller) Architecture**, **DAO (Data Access Object) Design Pattern**, and **JDBC-based database integration** to achieve a modular, scalable, reusable, and maintainable code structure.
 
@@ -97,7 +97,7 @@ The application simplifies the food ordering process by connecting users with re
 
 ## Web Server
 
-- Apache Tomcat 10
+- Apache Tomcat 10.1
 
 ## IDE
 
@@ -116,7 +116,6 @@ Before running the Foodie application, make sure the following software is insta
 | Requirement | Version |
 |------------|---------|
 | Java Development Kit (JDK) | 17+ |
-| Apache Maven | 3.8+ |
 | MySQL Database | 8.0+ |
 | Apache Tomcat Server | 10.1 |
 | Eclipse IDE | Latest Version |
@@ -271,6 +270,8 @@ Foodie
 
 Follow the below steps to set up and run the **Foodie - Food Delivery Web Application** on your local machine.
 
+---
+
 ## 1️⃣ Clone the Repository
 
 Clone the project using Git:
@@ -278,7 +279,8 @@ Clone the project using Git:
 ```bash
 git clone https://github.com/your-username/Foodie.git
 
-cd Foodie
+Navigate to the project folder:
+    cd Foodie
 
 2️⃣ Import Project into Eclipse IDE
 1. Open Eclipse IDE.
@@ -315,31 +317,31 @@ or
   private static final String PASSWORD = 
   "your_password";
 
-4️⃣ Configure Apache Tomcat Server
-1. Install Apache Tomcat 10.1.
-2. In Eclipse, add Tomcat Server:
-3. Window → Preferences → Server → Runtime Environment
-4. Select Apache Tomcat 10.1.
-5. Add the Foodie project to the server.
+5️⃣ Add Required Libraries
 
-
-5️⃣ Build the Project Using Maven
-Open the terminal inside the project folder and run:
-
-mvn clean install
-
-This will download dependencies and build the application.
+Make sure the project contains required libraries:
+WEB-INF
+ └── lib
+     ├── mysql-connector-j.jar
+     └── required servlet libraries
 
 6️⃣ Run the Application
-Start the Apache Tomcat server from Eclipse.
-Run the Foodie project.
-Open your browser and visit:
-http://localhost:8080/Foodie/
+1. Right-click on the project.
+2. Select:
+    Run As → Run on Server
+3. Select:
+    Apache Tomcat 10.1 Server
+
+4.Click Finish.
+  Open your browser: http://localhost:8080/Foodie/
 
 
+# 🗄️ Database Design
 
+Database Name:
 
-## 📌 Database Tables
+```sql
+instant_food
 
 ### 👤 User Table
 
@@ -451,11 +453,12 @@ Stores food categories.
 ## 🔗 Database Relationships
 
 - One **User** can have multiple Orders.
+- One **User** can have one active Cart.
 - One **Restaurant** can have multiple Menu Items.
 - One **Cart** can contain multiple Cart Items.
+- One **Menu Item** can belong to one Restaurant.
 - One **Order** can contain multiple Order Items.
 - One **Category** can contain multiple Menu Items.
-
 # 🚀 Key Features
 
 ## 👤 User Features
@@ -540,7 +543,7 @@ Stores food categories.
 # 🔄 Application Workflow
 
 The Foodie application follows a simple and efficient user workflow.
-
+```text
             Start
               |
               ↓
@@ -578,25 +581,33 @@ The Foodie application follows a simple and efficient user workflow.
               |
               ↓
              End
-
              
-## 🔹 Backend Flow
 
+---
+
+## ✅ 4. Fix Backend Flow
+
+Currently:
+
+Make it:
+
+```md
+```text
 JSP Pages
-|
-↓
+    |
+    ↓
 Servlet Controllers
-|
-↓
+    |
+    ↓
 Service Layer
-|
-↓
+    |
+    ↓
 DAO Layer
-|
-↓
+    |
+    ↓
 JDBC
-|
-↓
+    |
+    ↓
 MySQL Database
 
 ## 🔹 Request Processing Flow
@@ -784,7 +795,6 @@ Aspiring Software Developer with a strong foundation in Java, Web Development, a
 - DAO Design Pattern
 - Git & GitHub
 - Apache Tomcat
-- Maven
 
 ### Professional Interests
 - Java Full Stack Development
@@ -794,11 +804,10 @@ Aspiring Software Developer with a strong foundation in Java, Web Development, a
 
 ### Connect With Me
 - GitHub: https://github.com/n-091
-- LinkedIn: www.linkedin.com/in/nirmala091
-- Email:nirmalaniruss09@gmail.com
+- LinkedIn: https://www.linkedin.com/in/nirmala091
+- Email: nirmalaniruss09@gmail.com
 
-- # ⭐ Conclusion
-
+# ⭐ Conclusion
 Foodie is a complete **Food Delivery Web Application** developed using **Java, JSP, Servlets, JDBC, and MySQL**.
 
 The project demonstrates real-world software development practices including:
