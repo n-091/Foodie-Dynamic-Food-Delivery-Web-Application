@@ -1,10 +1,62 @@
 # 🍔 Foodie – Dynamic Java Food Delivery Web Application
+![Java](https://img.shields.io/badge/Java-17%2B-orange?style=for-the-badge&logo=openjdk)
+![JSP](https://img.shields.io/badge/JSP-Java%20Server%20Pages-blue?style=for-the-badge)
+![Servlet](https://img.shields.io/badge/Servlet-Jakarta%20EE-green?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql)
+![Maven](https://img.shields.io/badge/Maven-Build%20Tool-red?style=for-the-badge&logo=apachemaven)
+![Tomcat](https://img.shields.io/badge/Apache%20Tomcat-10.1-yellow?style=for-the-badge&logo=apachetomcat)
+![HTML5](https://img.shields.io/badge/HTML5-Frontend-orange?style=for-the-badge&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-Frontend-blue?style=for-the-badge&logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?style=for-the-badge&logo=javascript)
+![Git](https://img.shields.io/badge/Git-Version%20Control-orange?style=for-the-badge&logo=git)
+# 📌 About The Project
 
-Foodie is a dynamic Java-based Food Delivery Web Application that provides a seamless and interactive online food ordering experience. Developed using **Java, JSP, Servlets, JDBC, MySQL, HTML5, CSS3, JavaScript, and Apache Tomcat**, the application enables users to browse restaurants, explore menus, manage shopping carts, place orders, and view order history through a responsive and user-friendly interface.
+**Foodie** is a Java-based **Full Stack Food Delivery Web Application** designed to provide a seamless and interactive online food ordering experience.
 
-The project follows the **Model-View-Controller (MVC)** architecture and implements the **DAO (Data Access Object)** design pattern, ensuring a modular, scalable, reusable, and maintainable codebase. It demonstrates core Java Enterprise Web Development concepts such as user authentication, session management, CRUD operations, database connectivity, exception handling, and dynamic content rendering using JSP.
+The application enables users to create accounts, securely authenticate, explore restaurants, browse dynamic menus, add food items to their cart, place orders, and manage their order history through a user-friendly interface.
+
+Developed using **Java, JSP, Servlets, JDBC, MySQL, HTML5, CSS3, JavaScript, Apache Tomcat, and Maven**, Foodie demonstrates practical implementation of Java Enterprise Web Development concepts including user authentication, session management, CRUD operations, database connectivity, exception handling, and dynamic content rendering using JSP.
+
+The project follows industry-standard development practices using **MVC (Model-View-Controller) Architecture**, **DAO (Data Access Object) Design Pattern**, and **JDBC-based database integration** to achieve a modular, scalable, reusable, and maintainable code structure.
+
+Foodie showcases real-world software development practices by integrating frontend, backend, and database technologies into a complete web application, highlighting skills in **Java Full Stack Development, Object-Oriented Programming, Backend Development, and Database Management**.
+
+
+## 🎯 Project Objectives
+
+- Build a real-world online food ordering platform.
+- Develop a complete Java Full Stack web application.
+- Implement MVC architecture and design patterns.
+- Practice database-driven application development using JDBC and MySQL.
+- Gain hands-on experience in backend development and web application deployment.
+- Apply Object-Oriented Programming principles in real-world scenarios.
+
+
+## 💡 Problem Statement
+
+Traditional food ordering methods often require manual interaction and lack efficient digital management. Foodie addresses this challenge by providing an online platform where customers can easily discover restaurants, explore menus, order food, and manage their orders digitally.
+
+The application simplifies the food ordering process by connecting users with restaurants through an organized, database-driven web solution.
 
 ---
+# 📑 Table of Contents
+
+- [📌 About The Project](#-about-the-project)
+- [✨ Features](#-features)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [📂 Project Structure](#-project-structure)
+- [🗄️ Database Design](#️-database-design)
+- [🚀 Key Features](#-key-features)
+- [🔄 Application Workflow](#-application-workflow)
+- [⚙️ Installation & Setup](#️-installation--setup)
+- [▶️ How To Run](#️-how-to-run)
+- [📸 Screenshots](#-screenshots)
+- [🧪 Testing & Validation](#-testing--validation)
+- [🔮 Future Enhancements](#-future-enhancements)
+- [👩‍💻 Developer](#-developer)
+- [⭐ Conclusion](#-conclusion)
+- [📄 License](#-license)
+- 
 # ✨ Features
 
 - 👤 User Registration & Secure Login
@@ -57,6 +109,28 @@ The project follows the **Model-View-Controller (MVC)** architecture and impleme
 - GitHub
 
 ---
+# 📋 Prerequisites
+
+Before running the Foodie application, make sure the following software is installed on your system:
+
+| Requirement | Version |
+|------------|---------|
+| Java Development Kit (JDK) | 17+ |
+| Apache Maven | 3.8+ |
+| MySQL Database | 8.0+ |
+| Apache Tomcat Server | 10.1 |
+| Eclipse IDE | Latest Version |
+| Git | Latest Version |
+
+## Required Knowledge
+
+- Core Java
+- Object-Oriented Programming (OOP)
+- JDBC
+- JSP & Servlets
+- SQL Queries
+- MVC Architecture
+- DAO Design Pattern
 
 # 🏗️ Software Architecture
 
@@ -191,8 +265,78 @@ Foodie
 ├── README.md
 └── .gitignore
 ```
-
 ---
+
+# ⚙️ Installation & Setup
+
+Follow the below steps to set up and run the **Foodie - Food Delivery Web Application** on your local machine.
+
+## 1️⃣ Clone the Repository
+
+Clone the project using Git:
+
+```bash
+git clone https://github.com/your-username/Foodie.git
+
+cd Foodie
+
+2️⃣ Import Project into Eclipse IDE
+1. Open Eclipse IDE.
+2. Select:
+    File → Import → Web → WAR File / Existing Projects into Workspace
+or
+    File → Import → General → Existing Projects into Workspace
+3.select the cloned Foodie project folder.
+4. Click Finish.
+
+3️⃣ Configure Apache Tomcat Server
+1. Install Apache Tomcat 10.1.
+2. Add Tomcat Server in Eclipse:
+    Window → Preferences → Server → Runtime Environment
+3. Select Apache Tomcat 10.1.
+4.Configure the Tomcat installation directory.
+5. Add the Foodie project to the Tomcat server.
+
+4️⃣ Configure MySQL Database 
+1. Install and start MySQL Server.
+2.Create the database:
+    CREATE DATABASE instant_food;
+3. Import the provided SQL file:
+   instant_food.sql
+4. Open the database connection file:
+    src/main/java/com/designpattern/utility/DBConnection.java
+5. Update your MySQL credentials:
+    private static final String URL = 
+    "jdbc:mysql://localhost:3306/instant_food";
+
+  private static final String USERNAME = 
+  "your_username";
+
+  private static final String PASSWORD = 
+  "your_password";
+
+4️⃣ Configure Apache Tomcat Server
+1. Install Apache Tomcat 10.1.
+2. In Eclipse, add Tomcat Server:
+3. Window → Preferences → Server → Runtime Environment
+4. Select Apache Tomcat 10.1.
+5. Add the Foodie project to the server.
+
+
+5️⃣ Build the Project Using Maven
+Open the terminal inside the project folder and run:
+
+mvn clean install
+
+This will download dependencies and build the application.
+
+6️⃣ Run the Application
+Start the Apache Tomcat server from Eclipse.
+Run the Foodie project.
+Open your browser and visit:
+http://localhost:8080/Foodie/
+
+
 
 
 ## 📌 Database Tables
