@@ -620,28 +620,28 @@ MySQL Database
 
 ```text
 screenshots/
-├── home.png
-├── login.png
+├── home.jpg
+├── login.jpg
 ├── register.png
-├── restaurant.png
-├── menu.png
-├── cart.png
-├── checkout.png
-├── order-success.png
+├── restaurant.jpg
+├── menu.jpg
+├── cart.jpg
+├── checkout.jpg
+├── order-success.jpg
 └── er-diagram.png
 ```
 ## 🏠 Home Page
 
 The home page displays available restaurants, food categories, and navigation options for users.
 
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/home.jpg)
 
 
 ## 🔐 Login Page
 
 Users can securely login using their registered email and password.
 
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/login.jpg)
 
 
 ## 📝 Registration Page
@@ -655,35 +655,35 @@ New users can create an account by providing their personal details.
 
 Displays the list of available restaurants with restaurant details.
 
-![Restaurant Page](screenshots/restaurant.png)
+![Restaurant Page](screenshots/restaurant.jpg)
 
 
 ## 🍔 Menu Page
 
 Users can view food items, prices, images, and add items to the cart.
 
-![Menu Page](screenshots/menu.png)
+![Menu Page](screenshots/menu.jpg)
 
 
 ## 🛒 Cart Page
 
 Displays selected food items with quantity management and total calculation.
 
-![Cart Page](screenshots/cart.png)
+![Cart Page](screenshots/cart.jpg)
 
 
 ## 💳 Checkout Page
 
 Users can confirm their order before placing it.
 
-![Checkout Page](screenshots/checkout.png)
+![Checkout Page](screenshots/checkout.jpg)
 
 
 ## 📦 Order Success Page
 
 Displays order confirmation after successful checkout.
 
-![Order Success Page](screenshots/order-success.png)
+![Order Success Page](screenshots/order-success.jpg)
 
 ## 🌐 Live Demo
 
