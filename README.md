@@ -8,10 +8,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-Frontend-blue?style=for-the-badge&logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?style=for-the-badge&logo=javascript)
 ![Git](https://img.shields.io/badge/Git-Version%20Control-orange?style=for-the-badge&logo=git)
-![Repo Size](https://img.shields.io/github/repo-size/n-091/Foodie?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/n-091/Foodie?style=for-the-badge)
-![Forks](https://img.shields.io/github/forks/n-091/Foodie?style=for-the-badge)
-![Issues](https://img.shields.io/github/issues/n-091/Foodie?style=for-the-badge)
+
 
 # 📌 About The Project
 
@@ -214,7 +211,7 @@ Foodie
 │       │   ├── RestaurantDAO.java
 │       │   └── UserDAO.java
 │       │
-│       ├── com.designpattern.DAOImpl
+│       ├── com.designpattern.daoimpl
 │       │   ├── CartDAOImpl.java
 │       │   ├── CartItemDAOImpl.java
 │       │   ├── CategoryDAOImpl.java
@@ -795,8 +792,8 @@ The Foodie application can be enhanced with additional features to provide a bet
 
 ## Nirmala
 
-💻 Java Full Stack Developer Intern
-🎓 Computer Science Engineering Graduate  
+💻 Java Full Stack Developer Intern @ Tap Academy
+🎓 Computer Science Engineering Graduate
 
 Aspiring Software Developer with a strong foundation in Java, Web Development, and Database Management. Passionate about building scalable web applications and improving problem-solving skills through continuous learning.
 
