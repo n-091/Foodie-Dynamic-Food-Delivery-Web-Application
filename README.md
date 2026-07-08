@@ -277,7 +277,7 @@ Follow the below steps to set up and run the **Foodie - Food Delivery Web Applic
 Clone the project using Git:
 
 ```bash
-git clone https://github.com/your-username/Foodie.git
+git clone https://github.com/n-091/Foodie.git
 
 Navigate to the project folder:
     cd Foodie
@@ -585,14 +585,8 @@ The Foodie application follows a simple and efficient user workflow.
 
 ---
 
-## ✅ 4. Fix Backend Flow
+## 🔹 Backend Request Flow
 
-Currently:
-
-Make it:
-
-```md
-```text
 JSP Pages
     |
     ↓
@@ -610,6 +604,7 @@ JDBC
     ↓
 MySQL Database
 
+
 ## 🔹 Request Processing Flow
 
 1. User performs an action from JSP page.
@@ -620,6 +615,20 @@ MySQL Database
 6. Response is returned back to JSP page.
 
 # 📸 Screenshots
+
+screenshots
+│
+├── home.png
+├── login.png
+├── menu.png
+├── cart.png
+└── er-diagram.png
+
+
+## 🗄️ Entity Relationship Diagram
+
+![ER Diagram](screenshots/er-diagram.png)
+
 
 ## 🏠 Home Page
 
@@ -675,6 +684,12 @@ Users can confirm their order before placing it.
 Displays order confirmation after successful checkout.
 
 ![Order Success Page](screenshots/order-success.png)
+
+# 🌐 Demo
+
+Coming Soon 🚀
+
+The application is currently available for local deployment using Apache Tomcat.
 
 
 # 🧪 Testing & Validation
@@ -777,7 +792,7 @@ The Foodie application can be enhanced with additional features to provide a bet
 
 ## Nirmala
 
-💻 Software Developer Intern  
+💻 Java Full Stack Developer Intern
 🎓 Computer Science Engineering Graduate  
 
 Aspiring Software Developer with a strong foundation in Java, Web Development, and Database Management. Passionate about building scalable web applications and improving problem-solving skills through continuous learning.
@@ -831,10 +846,13 @@ Thank you for visiting this project repository.
 
 ⭐ If you find this project useful, consider giving it a star!
 
-# 📄 License
+- [📄 License](#-license)
 
 This project is developed for learning and demonstration purposes.
 
 You are free to explore the source code, understand the implementation, and use it for educational purposes.
 
 © 2026 Nirmala. All rights reserved.
+
+
+
