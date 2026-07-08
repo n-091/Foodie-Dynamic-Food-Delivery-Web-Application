@@ -8,6 +8,10 @@
 ![CSS3](https://img.shields.io/badge/CSS3-Frontend-blue?style=for-the-badge&logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?style=for-the-badge&logo=javascript)
 ![Git](https://img.shields.io/badge/Git-Version%20Control-orange?style=for-the-badge&logo=git)
+![Repo Size](https://img.shields.io/github/repo-size/n-091/Foodie?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/n-091/Foodie?style=for-the-badge)
+![Forks](https://img.shields.io/github/forks/n-091/Foodie?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/n-091/Foodie?style=for-the-badge)
 
 # 📌 About The Project
 
@@ -278,9 +282,8 @@ Clone the project using Git:
 
 ```bash
 git clone https://github.com/n-091/Foodie.git
-
-Navigate to the project folder:
-    cd Foodie
+cd Foodie
+```
 
 2️⃣ Import Project into Eclipse IDE
 1. Open Eclipse IDE.
@@ -341,7 +344,8 @@ WEB-INF
 Database Name:
 
 ```sql
-instant_food
+CREATE DATABASE instant_food;
+```
 
 ### 👤 User Table
 
@@ -615,21 +619,20 @@ MySQL Database
 6. Response is returned back to JSP page.
 
 # 📸 Screenshots
+## 📂 Screenshots Folder
 
-screenshots
-│
+```text
+screenshots/
 ├── home.png
 ├── login.png
+├── register.png
+├── restaurant.png
 ├── menu.png
 ├── cart.png
+├── checkout.png
+├── order-success.png
 └── er-diagram.png
-
-
-## 🗄️ Entity Relationship Diagram
-
-![ER Diagram](screenshots/er-diagram.png)
-
-
+```
 ## 🏠 Home Page
 
 The home page displays available restaurants, food categories, and navigation options for users.
@@ -685,9 +688,9 @@ Displays order confirmation after successful checkout.
 
 ![Order Success Page](screenshots/order-success.png)
 
-# 🌐 Demo
+## 🌐 Live Demo
 
-Coming Soon 🚀
+👉 https://your-demo-link
 
 The application is currently available for local deployment using Apache Tomcat.
 
@@ -817,10 +820,9 @@ Aspiring Software Developer with a strong foundation in Java, Web Development, a
 - Web Application Development
 - Software Engineering
 
-### Connect With Me
-- GitHub: https://github.com/n-091
-- LinkedIn: https://www.linkedin.com/in/nirmala091
-- Email: nirmalaniruss09@gmail.com
+- **GitHub:** [@n-091](https://github.com/n-091)
+- **LinkedIn:** [Nirmala](https://www.linkedin.com/in/nirmala091)
+- **Email:** nirmalaniruss09@gmail.com
 
 # ⭐ Conclusion
 Foodie is a complete **Food Delivery Web Application** developed using **Java, JSP, Servlets, JDBC, and MySQL**.
