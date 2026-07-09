@@ -51,116 +51,104 @@ public class OrderDAOImpl implements OrderDAO {
 		return orderId;
 	}
 
-
-	// GET ORDER BY ID
 	@Override
 	public Order getOrderById(int orderId){
+	    Order order = null;
 
-		Order order=null;
+	    String sql = "SELECT o.*, r.name AS restaurantName " +
+	                 "FROM orders o " +
+	                 "JOIN restaurant r ON o.restaurant_id = r.RestaurantID " +
+	                 "WHERE o.order_id=?";
 
-		String sql="SELECT * FROM orders WHERE order_id=?";
+	    try(PreparedStatement ps = conn.prepareStatement(sql)){
+	        ps.setInt(1, orderId);
+	        ResultSet rs = ps.executeQuery();
 
-		try(PreparedStatement ps=conn.prepareStatement(sql)){
-
-			ps.setInt(1,orderId);
-
-			ResultSet rs=ps.executeQuery();
-
-			if(rs.next()){
-
-				order=new Order();
-
-				order.setOrderId(rs.getInt("order_id"));
-				order.setUserId(rs.getInt("user_id"));
-				order.setRestaurantId(rs.getInt("restaurant_id"));
-				order.setTotalAmount(rs.getDouble("total_amount"));
-				order.setStatus(rs.getString("status"));
-				order.setPaymentMethod(rs.getString("payment_method"));
-
-				order.setItems(getOrderItems(orderId));
-			}
-
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-
-		return order;
+	        if(rs.next()){
+	            order = new Order();
+	            order.setOrderId(rs.getInt("order_id"));
+	            order.setUserId(rs.getInt("user_id"));
+	            order.setRestaurantId(rs.getInt("restaurant_id"));
+	            order.setRestaurantName(rs.getString("restaurantName")); // ✅
+	            order.setTotalAmount(rs.getDouble("total_amount"));
+	            order.setStatus(rs.getString("status"));
+	            order.setPaymentMethod(rs.getString("payment_method"));
+	            order.setOrderDate(rs.getTimestamp("order_date"));
+	            order.setItems(getOrderItems(orderId));
+	        }
+	    }catch(Exception e){
+	        e.printStackTrace();
+	    }
+	    return order;
 	}
-
-
-	// ALL ORDERS
+	
+	
 	@Override
 	public List<Order> getAllOrders(){
+	    List<Order> list = new ArrayList<>();
 
-		List<Order> list=new ArrayList<>();
+	    String sql = "SELECT o.*, r.name AS restaurantName " +
+	                 "FROM orders o " +
+	                 "JOIN restaurant r ON o.restaurant_id = r.RestaurantID " +
+	                 "ORDER BY o.order_id DESC";
 
-		String sql="SELECT * FROM orders ORDER BY order_id DESC";
+	    try(PreparedStatement ps = conn.prepareStatement(sql);
+	        ResultSet rs = ps.executeQuery()){
 
-		try(PreparedStatement ps=conn.prepareStatement(sql);
-				ResultSet rs=ps.executeQuery()){
+	        while(rs.next()){
+	            Order o = new Order();
+	            o.setOrderId(rs.getInt("order_id"));
+	            o.setUserId(rs.getInt("user_id"));
+	            o.setRestaurantId(rs.getInt("restaurant_id"));
+	            o.setRestaurantName(rs.getString("restaurantName")); // ✅ now fetched
+	            o.setTotalAmount(rs.getDouble("total_amount"));
+	            o.setStatus(rs.getString("status"));
+	            o.setPaymentMethod(rs.getString("payment_method"));
+	            o.setOrderDate(rs.getTimestamp("order_date"));
+	            o.setItems(getOrderItems(o.getOrderId()));
 
-			while(rs.next()){
-
-				Order o=new Order();
-
-				o.setOrderId(rs.getInt("order_id"));
-				o.setUserId(rs.getInt("user_id"));
-				o.setRestaurantId(rs.getInt("restaurant_id"));
-				o.setTotalAmount(rs.getDouble("total_amount"));
-				o.setStatus(rs.getString("status"));
-				o.setPaymentMethod(rs.getString("payment_method"));
-
-				o.setItems(getOrderItems(o.getOrderId()));
-
-				list.add(o);
-			}
-
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-
-		return list;
+	            list.add(o);
+	        }
+	    }catch(Exception e){
+	        e.printStackTrace();
+	    }
+	    return list;
 	}
 
 
 
-	// ORDERS BY USER
 	@Override
 	public List<Order> getOrdersByUser(int userId){
+	    List<Order> list = new ArrayList<>();
 
-		List<Order> list=new ArrayList<>();
+	    String sql = "SELECT o.*, r.name AS restaurantName " +
+	                 "FROM orders o " +
+	                 "JOIN restaurant r ON o.restaurant_id = r.RestaurantID " +
+	                 "WHERE o.user_id=? ORDER BY o.order_id DESC";
 
-		String sql="SELECT * FROM orders WHERE user_id=? ORDER BY order_id DESC";
+	    try(PreparedStatement ps = conn.prepareStatement(sql)){
+	        ps.setInt(1, userId);
+	        ResultSet rs = ps.executeQuery();
 
-		try(PreparedStatement ps=conn.prepareStatement(sql)){
+	        while(rs.next()){
+	            Order o = new Order();
+	            o.setOrderId(rs.getInt("order_id"));
+	            o.setUserId(rs.getInt("user_id"));
+	            o.setRestaurantId(rs.getInt("restaurant_id"));
+	            o.setRestaurantName(rs.getString("restaurantName")); // ✅ now included
+	            o.setTotalAmount(rs.getDouble("total_amount"));
+	            o.setStatus(rs.getString("status"));
+	            o.setPaymentMethod(rs.getString("payment_method"));
+	            o.setOrderDate(rs.getTimestamp("order_date"));
+	            o.setItems(getOrderItems(o.getOrderId()));
 
-			ps.setInt(1,userId);
-
-			ResultSet rs=ps.executeQuery();
-
-			while(rs.next()){
-
-				Order o=new Order();
-
-				o.setOrderId(rs.getInt("order_id"));
-				o.setUserId(rs.getInt("user_id"));
-				o.setRestaurantId(rs.getInt("restaurant_id"));
-				o.setTotalAmount(rs.getDouble("total_amount"));
-				o.setStatus(rs.getString("status"));
-				o.setPaymentMethod(rs.getString("payment_method"));
-
-				o.setItems(getOrderItems(o.getOrderId()));
-
-				list.add(o);
-			}
-
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-
-		return list;
+	            list.add(o);
+	        }
+	    }catch(Exception e){
+	        e.printStackTrace();
+	    }
+	    return list;
 	}
-
 
 
 	// ADD ORDER ITEM
@@ -345,39 +333,37 @@ public class OrderDAOImpl implements OrderDAO {
 		}
 	}
 
-
-
 	@Override
 	public List<Order> getOrdersByRestaurant(int restaurantId){
+	    List<Order> list = new ArrayList<>();
 
-		List<Order> list=new ArrayList<>();
+	    String sql = "SELECT o.*, r.name AS restaurantName " +
+	                 "FROM orders o " +
+	                 "JOIN restaurant r ON o.restaurant_id = r.RestaurantID " +
+	                 "WHERE o.restaurant_id=?";
 
-		String sql="SELECT * FROM orders WHERE restaurant_id=?";
+	    try(PreparedStatement ps = conn.prepareStatement(sql)){
+	        ps.setInt(1, restaurantId);
+	        ResultSet rs = ps.executeQuery();
 
-		try(PreparedStatement ps=conn.prepareStatement(sql)){
+	        while(rs.next()){
+	            Order o = new Order();
+	            o.setOrderId(rs.getInt("order_id"));
+	            o.setRestaurantId(rs.getInt("restaurant_id"));
+	            o.setUserId(rs.getInt("user_id"));
+	            o.setRestaurantName(rs.getString("restaurantName")); // ✅ now included
+	            o.setTotalAmount(rs.getDouble("total_amount"));
+	            o.setStatus(rs.getString("status"));
+	            o.setPaymentMethod(rs.getString("payment_method"));
+	            o.setOrderDate(rs.getTimestamp("order_date"));
+	            o.setItems(getOrderItems(o.getOrderId()));
 
-			ps.setInt(1,restaurantId);
-
-			ResultSet rs=ps.executeQuery();
-
-			while(rs.next()){
-
-				Order o=new Order();
-
-				o.setOrderId(rs.getInt("order_id"));
-				o.setRestaurantId(rs.getInt("restaurant_id"));
-				o.setUserId(rs.getInt("user_id"));
-				o.setTotalAmount(rs.getDouble("total_amount"));
-				o.setStatus(rs.getString("status"));
-
-				list.add(o);
-			}
-
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-
-		return list;
+	            list.add(o);
+	        }
+	    }catch(Exception e){
+	        e.printStackTrace();
+	    }
+	    return list;
 	}
 
 }

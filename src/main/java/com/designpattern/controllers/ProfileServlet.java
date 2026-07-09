@@ -64,7 +64,6 @@ public class ProfileServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-
     private void deleteProfile(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
@@ -77,8 +76,9 @@ public class ProfileServlet extends HttpServlet {
         if (success) {
             System.out.println("✅ User deleted successfully: " + userId);
             session.invalidate(); // clear session
-            // Redirect with success message
-            response.sendRedirect("home?message=✅ Profile successfully deleted!");
+
+            // ✅ Redirect safely without emoji in header
+            response.sendRedirect("home?message=ProfileDeleted");
         } else {
             System.out.println("❌ Failed to delete user: " + userId);
             request.setAttribute("error", "❌ Failed to delete profile.");
@@ -86,6 +86,4 @@ public class ProfileServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
-
-
 }

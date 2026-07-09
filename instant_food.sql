@@ -26,6 +26,7 @@ SELECT * FROM user WHERE is_active = TRUE;
 DESC user;
 SELECT * FROM instant_food.user;
 
+
 SELECT * FROM cart;
 
 

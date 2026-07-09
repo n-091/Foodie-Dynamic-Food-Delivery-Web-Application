@@ -58,13 +58,11 @@ body {
 	transition: .3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover, .nav-links a.active {
 	color: #E67E22;
 	font-weight: 600;
 	border-bottom: 2px solid #E67E22;
 }
-
 
 /* SUCCESS CARD */
 .success-card {
@@ -74,7 +72,7 @@ body {
 	border-radius: 15px;
 	padding: 30px;
 	text-align: center;
-	box-shadow: 0 4px 15px rgba(0,0,0,.1);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
 	animation: fadeUp 1s ease;
 }
 
@@ -123,17 +121,16 @@ body {
 	transform: scale(1.05);
 }
 
-
 /* ANIMATION */
-@keyframes fadeUp {
-	from {
-		opacity:0;
-		transform:translateY(20px);
-	}
-	to {
-		opacity:1;
-		transform:translateY(0);
-	}
+@
+keyframes fadeUp {from { opacity:0;
+	transform: translateY(20px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
 }
 </style>
 
@@ -142,102 +139,90 @@ body {
 <body>
 
 
-<!-- NAVBAR -->
+	<!-- NAVBAR -->
 
-<nav class="navbar">
+	<nav class="navbar">
 
-	<div>
-		<span class="logo">Foodie</span>
+		<div>
+			<span class="logo">Foodie</span>
+		</div>
+
+		<div class="nav-links">
+
+			<a href="home" class="active">Home</a> <a href="restaurants">Restaurants</a>
+			<a href="cart">Cart</a> <a href="orders">My Orders</a> <a
+				href="profile.jsp">Profile</a> <a href="login">Login</a>
+
+		</div>
+
+	</nav>
+
+
+
+	<!-- SUCCESS CARD -->
+
+	<div class="success-card">
+
+
+		<h1>
+			<i class="fas fa-check-circle"></i> Order Placed Successfully!
+		</h1>
+
+
+		<p>Thank you for ordering with Foodie.</p>
+
+
+		<div class="order-details">
+
+
+			<%
+			Object orderId = session.getAttribute("orderId");
+			Object total = session.getAttribute("total");
+
+			if (orderId == null)
+				orderId = "N/A";
+
+			if (total == null)
+				total = "0";
+			%>
+
+
+			<div>
+				<span>Order ID:</span> <span>#<%=orderId%></span>
+			</div>
+
+
+			<div>
+				<span>Total Amount:</span> <span>₹<%=total%></span>
+			</div>
+
+
+			<div>
+				<span>Status:</span> <span>Confirmed</span>
+			</div>
+
+
+			<div>
+				<span>Estimated Delivery:</span> <span>30–40 mins</span>
+			</div>
+
+
+		</div>
+
+
+
+		<div class="btn-group">
+
+			<form action="home" method="get">
+
+				<button type="submit">Back to Home</button>
+
+			</form>
+
+		</div>
+
+
 	</div>
-
-	<div class="nav-links">
-
-		<a href="home" class="active">Home</a>
-		<a href="restaurants">Restaurants</a>
-		<a href="cart">Cart</a>
-		<a href="orders">My Orders</a>
-		<a href="profile.jsp">Profile</a>
-		<a href="login">Login</a>
-
-	</div>
-
-</nav>
-
-
-
-<!-- SUCCESS CARD -->
-
-<div class="success-card">
-
-
-<h1>
-<i class="fas fa-check-circle"></i>
-Order Placed Successfully!
-</h1>
-
-
-<p>
-Thank you for ordering with Foodie.
-</p>
-
-
-<div class="order-details">
-
-
-<%
-Object orderId = session.getAttribute("orderId");
-Object total = session.getAttribute("total");
-
-if(orderId == null)
-	orderId = "N/A";
-
-if(total == null)
-	total = "0";
-%>
-
-
-<div>
-<span>Order ID:</span>
-<span>#<%=orderId%></span>
-</div>
-
-
-<div>
-<span>Total Amount:</span>
-<span>₹<%=total%></span>
-</div>
-
-
-<div>
-<span>Status:</span>
-<span>Confirmed</span>
-</div>
-
-
-<div>
-<span>Estimated Delivery:</span>
-<span>30–40 mins</span>
-</div>
-
-
-</div>
-
-
-
-<div class="btn-group">
-
-<form action="home" method="get">
-
-<button type="submit">
-Back to Home
-</button>
-
-</form>
-
-</div>
-
-
-</div>
 
 
 </body>

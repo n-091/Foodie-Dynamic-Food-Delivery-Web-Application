@@ -415,22 +415,23 @@ body {
 
 #toast-container {
 	position: fixed;
-	top: 20px;
-	right: 20px;
+	bottom: 20px; /* move to bottom */
+	left: 50%; /* center horizontally */
+	transform: translateX(-50%);
 	z-index: 9999;
 }
 
 .toast {
-	background-color: #28a745; /* green for success */
-	color: white;
-	padding: 12px 20px;
-	border-radius: 6px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-	font-weight: bold;
-	margin-bottom: 10px;
+	background-color: #28a745; /* success green */
+	color: #fff;
+	padding: 14px 22px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+	font-weight: 500;
+	margin-top: 10px;
 	opacity: 0;
-	transform: translateY(-20px);
-	transition: all 0.5s ease;
+	transform: translateY(20px); /* slide up */
+	transition: all 0.4s ease;
 }
 
 .toast.show {
@@ -439,7 +440,7 @@ body {
 }
 
 .toast.error {
-	background-color: #dc3545; /* red for error */
+	background-color: #dc3545; /* error red */
 }
 </style>
 <!-- ✅ Correct closing tag -->
@@ -600,11 +601,14 @@ body {
 	</section>
 
 	<!-- FOOTER -->
-	<footer class="footer">
-		<h3>Foodie ❤️</h3>
-		<p>Made With Love | Instant Food Delivery</p>
-	</footer>
-	<script>
+<footer class="footer">
+    <h3>Foodie ❤️</h3>
+    <p>Made With Love | Instant Food Delivery</p>
+</footer>
+
+<div id="toast-container"></div>
+
+<script>
     function showToast(message, type = "success") {
         var toastContainer = document.getElementById("toast-container");
         var toast = document.createElement("div");
@@ -622,16 +626,19 @@ body {
         }, 3000);
     }
 
-    // ✅ Trigger toast if message/error exists in URL
+    // ✅ Only check for error in URL
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("message")) {
-        showToast(urlParams.get("message"), "success");
-    }
     if (urlParams.get("error")) {
         showToast(urlParams.get("error"), "error");
     }
 </script>
 
+<% String msg = request.getParameter("message"); %>
+<% if ("ProfileDeleted".equals(msg)) { %>
+    <script>
+        showToast("✅ Profile successfully deleted!", "success");
+    </script>
+<% } %>
 
 </body>
 </html>
